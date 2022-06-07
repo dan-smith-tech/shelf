@@ -8,8 +8,20 @@
 	--color-primary: #a81759;
 	--color-secondary: #171633;
 	--color-tertiary: #111025;
-	--gradient-primary: linear-gradient(45deg, var(--color-primary) 0%, #a81796 35%, #6c17a8 65%, #3917a8 100%);
-	--gradient-secondary: linear-gradient(45deg, var(--color-secondary) 0%, #251633 35%, #2c1633 65%, #421531 100%);
+	--gradient-primary: linear-gradient(
+		45deg,
+		var(--color-primary) 0%,
+		#a81796 35%,
+		#6c17a8 65%,
+		#3917a8 100%
+	);
+	--gradient-secondary: linear-gradient(
+		45deg,
+		var(--color-secondary) 0%,
+		#251633 35%,
+		#2c1633 65%,
+		#421531 100%
+	);
 
 	--gap: 1rem;
 
@@ -36,30 +48,43 @@ section:not(:last-child) {
 	margin-bottom: var(--gap);
 }
 
-.grid-container-column {
+h2 {
+	width: fit-content;
+	height: fit-content;
+	color: white;
+	background-color: var(--color-primary);
+	background-image: var(--gradient-primary);
+	background-clip: text;
+}
+
+h3 {
+	font-size: 1.15rem;
+	color: white;
+	/* color: transparent;
+	background-image: var(--gradient-primary);
+	background-clip: text; */
+}
+
+.grid-columns {
 	display: grid;
-	gap: var(--gap);
 	grid-template-columns: repeat(4, 1fr);
+	gap: var(--gap);
 }
 
-.grid-column {
+.grid-rows {
 	display: grid;
+	grid-template-rows: auto;
 	gap: var(--gap);
-	/* grid-template-rows: repeat(4, 1fr); */
-}
-
-.grid-row {
-	display: grid;
-	gap: var(--gap);
-	grid-template-rows: repeat(5, 1fr);
 }
 
 .grid-heading {
-	height: fit-content;
+	padding-top: 3.65em;
+	/* display: flex;
+	align-items: flex-end; */
 }
 
 .grid-element {
-	min-height: 6.5rem;
+	min-height: 6rem;
 	padding: var(--gap);
 	box-sizing: border-box;
 	color: white;
@@ -113,22 +138,25 @@ section:not(:last-child) {
 	transform: scale(1.35);
 }
 
-h3 {
-	font-size: 1.15rem;
-	color: white;
-	/* color: transparent;
-	background-image: var(--gradient-primary);
-	background-clip: text; */
-}
-
 .grid-element svg {
-	filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(128deg) brightness(103%) contrast(101%);
+	filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(128deg)
+		brightness(103%) contrast(101%);
 	/* filter: invert(18%) sepia(58%) saturate(3857%) hue-rotate(315deg) brightness(85%) contrast(97%); */
 }
 
+#time {
+	width: fit-content;
+	margin: 2.85rem auto 0 auto;
+	font-size: 3.5rem;
+	color: transparent;
+	background-image: var(--gradient-primary);
+	background-clip: text;
+	user-select: none;
+}
+
 #search {
-	/* height: fit-content;
-	padding: 0; */
+	width: 65em;
+	margin: 0 auto calc(2.85rem + var(--gap)) auto;
 	position: relative;
 }
 
