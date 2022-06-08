@@ -5,23 +5,24 @@
 }
 
 :root {
-	--color-primary: #a81759;
-	--color-secondary: #171633;
-	--color-tertiary: #111025;
+	--color-text: white;
+	--color-primary: #a81759; /* Used for highlights */
+	--color-secondary: #171633; /* Used for backdrops of elements */
+	--color-tertiary: #111025; /* Used for the backdrop of the entire page */
 	--gradient-primary: linear-gradient(
 		45deg,
 		var(--color-primary) 0%,
 		#a81796 35%,
 		#6c17a8 65%,
 		#3917a8 100%
-	);
+	); /* Used for highlights */
 	--gradient-secondary: linear-gradient(
 		45deg,
 		var(--color-secondary) 0%,
 		#251633 35%,
 		#2c1633 65%,
 		#421531 100%
-	);
+	); /* Used for backdrops of elements */
 
 	--gap: 1rem;
 
@@ -31,17 +32,22 @@
 	--transition-duration: 250ms;
 }
 
-html,
+html {
+	width: 100%;
+	min-height: 100%;
+}
+
 body {
 	width: 100%;
+	min-height: 100vh;
 	height: 100%;
+	background-color: var(--color-tertiary);
 }
 
 main {
-	min-height: 100%;
+	min-height: 100vh;
 	padding: var(--gap);
 	box-sizing: border-box;
-	background-color: var(--color-tertiary);
 }
 
 section:not(:last-child) {
@@ -51,24 +57,31 @@ section:not(:last-child) {
 h2 {
 	width: fit-content;
 	height: fit-content;
-	color: white;
-	background-color: var(--color-primary);
-	background-image: var(--gradient-primary);
-	background-clip: text;
+	color: var(--color-text);
 }
 
 h3 {
 	font-size: 1.15rem;
-	color: white;
-	/* color: transparent;
-	background-image: var(--gradient-primary);
-	background-clip: text; */
+	color: var(--color-text);
 }
 
 .grid-columns {
+	height: 100% !important;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: var(--gap);
+}
+
+@media (max-width: 1250px) {
+	.grid-columns {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 850px) {
+	.grid-columns {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
 .grid-rows {
@@ -79,15 +92,13 @@ h3 {
 
 .grid-heading {
 	padding-top: 3.65em;
-	/* display: flex;
-	align-items: flex-end; */
 }
 
 .grid-element {
 	min-height: 6rem;
 	padding: var(--gap);
 	box-sizing: border-box;
-	color: white;
+	color: var(--color-text);
 	text-decoration: none;
 	background-color: var(--color-secondary);
 	background-image: var(--gradient-secondary);
@@ -141,7 +152,6 @@ h3 {
 .grid-element svg {
 	filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(128deg)
 		brightness(103%) contrast(101%);
-	/* filter: invert(18%) sepia(58%) saturate(3857%) hue-rotate(315deg) brightness(85%) contrast(97%); */
 }
 
 #time {
@@ -151,18 +161,25 @@ h3 {
 	color: transparent;
 	background-image: var(--gradient-primary);
 	background-clip: text;
+	-webkit-background-clip: text;
 	user-select: none;
 }
 
 #search {
-	width: 65em;
+	max-width: 65em;
 	margin: 0 auto calc(2.85rem + var(--gap)) auto;
 	position: relative;
 }
 
+@media (max-width: 67em) {
+	#search {
+		margin: 0;
+	}
+}
+
 #search input {
 	width: 100%;
-	font-size: 1.15rem;
+	font-size: 1rem;
 	border: none;
-	color: white;
+	color: var(--color-text);
 }
