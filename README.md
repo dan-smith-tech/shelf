@@ -16,11 +16,15 @@
    -  [Colour](#colour)
    -  [Clock](#clock)
    -  [Searchbar](#searchbar)
+      -  [Change Search Engine](#change-search-engine)
+      -  [Change Layout](#change-layout)
+      -  [Delete](#delete)
    -  [Layout](#layout)
+      -  [Change Height of Links](#change-height-of-links)
+      -  [Change Links to be the Same Height](#change-links-to-be-the-same-height)
    -  [Content](#content)
       -  [Links](#links)
-      -  [Icons](#icons)
-      -  [Names](#names)
+      -  [Headings](#headings)
 -  [Contributing](#contributing)
 -  [Forking Guidelines & License Notice](#forking-guidelines--license-notice)
 
@@ -30,7 +34,7 @@
 
 # Motivation
 
-I created _Shelf_ because I couldn't find a fully-customisable browser startpage that allowed me to document my most important bookmarks the way I wanted (also, I just wanted to experiment with some cool gradient designs). I also wanted my searchbar to be focused on when my browser loads, and made sure to implement this into _Shelf_, so as soon as your browser opens you can start searching without having to select any searchbars or click on any input fields (becasue after all, if you're not clicking on a bookmark, you're probably opening your browser to search something up!).
+I created _Shelf_ because I couldn't find a fully-customisable browser startpage that allowed me to document my most important bookmarks the way I wanted (also, I just wanted to experiment with some cool gradient designs). I also wanted my searchbar to be focused when my browser loads, and made sure to implement this into _Shelf_, so as soon as your browser opens you can start searching without having to select any searchbars or click on any input fields (because after all, if you're not clicking on a bookmark, you're probably opening your browser to search something up!).
 
 I like to use _Shelf_ by keeping my most visited and important bookmarks as the largest link elements (for ease of access and to represent importance), whilst having the clock and searchbar right above them, for quick access.
 
@@ -56,7 +60,7 @@ Once you have _Shelf_ downloaded locally on your machine, you will need to set i
 
 # Documentation
 
-The following sections detail how you can customise every part of _Shelf_ to create your very own browser startpage. However, if you are famailiar with HTML, CSS, and JavaScript, you should of course experiment with more complicated customisations.
+The following sections detail how you can customise every part of _Shelf_ to create your very own browser startpage. However, if you are familiar with HTML, CSS, and JavaScript, you should of course experiment with more complicated customisations.
 
 <br>
 <br>
@@ -150,7 +154,7 @@ If you want to change the search engine used, then you will need to change the v
 const searchEngine = "https://google.com/search?q=";
 ```
 
-If you change the search engine, then you will also want to change the placeholder text in the search bar to reflect your choice. You can do this by replaceing the 'placeholder' property in the following HTML (found towards the top of the 'index.html' file).
+If you change the search engine, then you will also want to change the placeholder text in the search bar to reflect your choice. You can do this by replacing the 'placeholder' property in the following HTML (found towards the top of the 'index.html' file).
 
 ```html
 <input class="grid-element" type="search" placeholder="Search with Google or enter an address..."></input>
@@ -219,9 +223,21 @@ Elements in _Shelf_ are arranged using CSS Grid.
 
 <br>
 
-### Change Links to Be The Same Height
+### Change Height of Links
 
-In order to make all of the links have the same height (as opposed to filling the available space), change the 'grid-template-rows' property in the following CSS class (found in the 'main.css' file). Set the value to 'repear(x, 1fr)', where x is the largest number of links you have (vertically) in any column.
+In order to change the smallest height that link elements can be, change the 'min-height' property in the following CSS class (found in 'main.css').
+
+```css
+.grid-element {
+	min-height: 6rem;
+}
+```
+
+<br>
+
+### Change Links to be the Same Height
+
+In order to make all of the links have the same height (as opposed to filling the available space), change the 'grid-template-rows' property in the following CSS class (found in the 'main.css' file). Set the value to 'repeat(x, 1fr)', where x is the largest number of links you have (vertically) in any column.
 
 ```css
 .grid-rows {
@@ -241,7 +257,7 @@ By default, _Shelf_ comes with a few demo bookmarks (such as YouTube, Spotify, a
 
 ### Links
 
-A link consits of the following HTML (found in the 'index.html' file).
+A link consists of the following HTML (found in the 'index.html' file).
 
 ```html
 <a href="[INSERT-LINK-URL]" class="grid-element">
@@ -303,7 +319,7 @@ Delete the 'style' attribute, and place it in your link element so that it looks
 </a>
 ```
 
-You can repeat this process as many times as you want, in order to create as many links as you want!
+You can repeat this process as many times as you want, in order to create as many links as you need!
 
 <br>
 
@@ -330,7 +346,7 @@ For example, a column could look like the following.
 </div>
 ```
 
-If you make this change, you will also need to update the 'grid-rows' CSS class (found in the 'main.css' file) in order to structure the rows in each column correctly. All you have to do for this to work is add '6.5rem' (or, wahtever height you have set your link elements to be - if you changed them) before the value already set for 'grid-template-rows'.
+If you make this change, you will also need to update the 'grid-rows' CSS class (found in the 'main.css' file) in order to structure the rows in each column correctly. All you have to do for this to work is add '6.5rem' (or, whatever height you have set your link elements to be - if you changed them) before the value already set for 'grid-template-rows'.
 
 This means, if you have your link elements set to auto size (this is the default setting), your updated property value should look like the following.
 
@@ -340,7 +356,7 @@ This means, if you have your link elements set to auto size (this is the default
 }
 ```
 
-Or, if you changed your link elements to be the same height (in the [layout](#layout) section), your updated property value should look like the following (just apply the same rules to the 'repeat' function as detailed in the (layout)[#layout] section, when setting the link elements to be the same size).
+Or, if you changed your link elements to be the same height (in the [layout](#layout) section), your updated property value should look like the following (just apply the same rules to the 'repeat' function as detailed in the [layout](#layout) section, when setting the link elements to be the same size).
 
 ```css
 .grid-rows {
