@@ -5,8 +5,11 @@ searchBar.focus();
 searchForm.onsubmit = (e) => {
 	e.preventDefault();
 	const query = searchBar.value.replace(/ /g, "+");
-	if (validURL(query)) return (window.location.href = query);
-	else return (window.location.href = "" + searchEngine + query);
+	if (validURL(query)) {
+		if (!query.startsWith("https://"))
+			return (window.location.href = "https://" + query);
+		else window.location.href = query;
+	} else return (window.location.href = "" + searchEngine + query);
 };
 function validURL(str) {
 	var pattern = new RegExp(
