@@ -34,9 +34,9 @@
 
 # Motivation
 
-I created _Shelf_ because I couldn't find a fully-customisable browser startpage that allowed me to document my most important bookmarks the way I wanted (also, I just wanted to experiment with some cool gradient designs). I also wanted my searchbar to be focused when my browser loads, and made sure to implement this into _Shelf_, so as soon as your browser opens you can start searching without having to select any searchbars or click on any input fields (because after all, if you're not clicking on a bookmark, you're probably opening your browser to search something up!).
+I created Shelf because I wanted a locally-accessible browser startpage that enabled me to organise my bookmarks by relative size - to represent importance and to increase ease-of-access to the places I visit the most (also, I just wanted to experiment with some cool gradient designs). Additionally, I wanted my searchbar to be focused when the browser loads, to start searching as soon as it opens (without having to click on any input fields, because after all, if you're not clicking on a bookmark, you're probably opening your browser to search something up).
 
-I like to use _Shelf_ by keeping my most visited and important bookmarks as the largest link elements (for ease of access and to represent importance), whilst having the clock and searchbar right above them, for quick access.
+I like to use Shelf by keeping my most visited and important bookmarks as the largest link elements, whilst having the clock and searchbar right above them, for quick access.
 
 <br>
 <br>
