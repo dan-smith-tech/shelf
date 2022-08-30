@@ -2,7 +2,7 @@
   <img alt="Logo" src="favicon.svg" width="100"/>
 </div>
 <h1 align="center"><strong>Shelf</strong></h1>
-<p align="center"> A fully customisable, open-source browser startpage.</p>
+<p align="center"> A fully customisable, open-source browser startpage, built with vanilla HTML.</p>
 
 <br>
 <br>
